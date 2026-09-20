@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="theme-color" content="#e8e8e5" />
+    <title>Autopilot Visualizer</title>
+    <link rel="icon" href="data:," />
+    <script type="module" crossorigin src="./assets/index-XGH2gY8f.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DKt4Ee1N.css">
+  </head>
+  <body>
+    <main id="app" aria-label="自动驾驶可视化模拟器">
+      <div id="scene" aria-label="三维道路环境"></div>
+
+      <header class="topbar">
+        <div class="brand-mark" aria-label="Autopilot visualization">
+          <span class="brand-glyph">A</span>
+          <span class="brand-copy">AUTOPILOT<br><small>VISUALIZATION</small></span>
+        </div>
+        <div class="trip-status">
+          <span id="clock">09:41</span>
+          <span class="signal-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <button id="sound-toggle" class="icon-button" type="button" aria-label="关闭声音" title="声音">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.1-3.8v7.6a4.5 4.5 0 0 0 2.1-3.8zm0-8v2.2a7 7 0 0 1 0 11.6V20a9 9 0 0 0 0-16z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="drive-hud" aria-label="驾驶状态">
+        <div class="speed-block">
+          <div id="speed" class="speed">0</div>
+          <div class="speed-meta"><span>km/h</span><strong id="gear">P</strong></div>
+        </div>
+        <div class="speed-limit" aria-label="限速 80"><span>80</span></div>
+      </section>
+
+      <section class="navigation" aria-label="导航提示">
+        <div class="turn-icon" id="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M19 32V14m0 0-7 7m7-7 7 7"/></svg>
+        </div>
+        <div class="nav-copy">
+          <strong id="nav-distance">1.2 km</strong>
+          <span id="nav-action">沿当前道路继续行驶</span>
+        </div>
+      </section>
+
+      <div class="indicator left" id="indicator-left" aria-hidden="true">
+        <svg viewBox="0 0 34 22"><path d="M14 2 3 11l11 9v-6h17V8H14V2z"/></svg>
+      </div>
+      <div class="indicator right" id="indicator-right" aria-hidden="true">
+        <svg viewBox="0 0 34 22"><path d="m20 2 11 9-11 9v-6H3V8h17V2z"/></svg>
+      </div>
+
+      <section class="status-strip" aria-live="polite">
+        <span class="status-dot"></span>
+        <div>
+          <strong id="drive-state">AP 可用</strong>
+          <span id="decision">点击激活，开始自动驾驶</span>
+        </div>
+      </section>
+
+      <button id="activate-ap" class="activate-button" type="button">
+        <span class="steering-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M5.5 15h21M16 15v12M9 15c1-4 3.5-6 7-6s6 2 7 6"/></svg>
+        </span>
+        <span><strong>激活 AP</strong><small>Autopilot available</small></span>
+      </button>
+
+      <footer class="footer-bar">
+        <span>视觉模拟演示</span>
+        <div class="progress-track"><i id="route-progress"></i></div>
+        <span id="trip-distance">24.8 km</span>
+      </footer>
+
+      <div id="loading" class="loading"><span></span><p>正在构建驾驶环境</p></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "fsd-visualization-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/*.test.js",
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "latest",
+    "vite": "latest",
+    "three": "latest"
+  },
+  "devDependencies": {}
+}
